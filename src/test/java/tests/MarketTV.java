@@ -24,12 +24,20 @@ public class MarketTV extends BaseTest {
         baseSteps.gotoMarket();
         baseSteps.gotoElectronic();
         baseSteps.gotoTV();
-        baseSteps.fillPriceFrom("20000");
-        //assertEquals();
-        baseSteps.clickCheckLG();
-        baseSteps.clickCheckSamsung();
-        baseSteps.submitFilter();
+        try{
+            baseSteps.clickCheckLG();
+            baseSteps.clickCheckSamsung();
+            baseSteps.fillPriceFrom("20000");
+            baseSteps.submitFilter();
+            baseSteps.checkPriceFrom("20000");
+            baseSteps.checkQuantityElements(12);
+            baseSteps.fillHeaderSearch();
+            baseSteps.submitHeaderSearch();
+            baseSteps.wait(60);
+        }catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
 
-        baseSteps.wait(6000);
+
     }
 }

@@ -2,6 +2,7 @@ package ru.aplana.homework.steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.openqa.selenium.Keys;
 import ru.aplana.homework.pages.ElectronicPage;
 import ru.aplana.homework.pages.MainPage;
 import ru.aplana.homework.pages.MarketPage;
@@ -25,7 +26,6 @@ public class BaseSteps extends ScenarioSteps{
 
     @Step("Переход на страницу \"Электроника\"")
     public void gotoElectronic() {
-        System.out.println(marketPage.electronic.toString());
         marketPage.electronic.click();
     }
 
@@ -37,9 +37,10 @@ public class BaseSteps extends ScenarioSteps{
     @Step("Заполнение фильтра \"Цена от\" {0}")
     public void fillPriceFrom(String price){
         tvSets.priceFrom.sendKeys(price);
+        tvSets.priceFrom.sendKeys(Keys.ENTER);
     }
 
-    @Step("Проверка введенного значения")
+    @Step("Проверка введенного значения {0}")
     public void checkPriceFrom(String price){
         assertEquals(price, tvSets.getPriceFrom());
     }
@@ -58,10 +59,26 @@ public class BaseSteps extends ScenarioSteps{
     public void clickCheckSamsung(){
         tvSets.checkSamsung.click();
     }
-/*
-    @Step("Проверка нажатия чекбоксов")
-    public boolean isChekedBoxes(){
 
+    @Step("Проверка количества элементов на странице, {0}")
+    public void checkQuantityElements(int quantity){
+        assertEquals(quantity, tvSets.getQuantityElements());
+    }
+
+    @Step("Ввод значения первого элемента в поисковую строку")
+    public void fillHeaderSearch(){
+        tvSets.headerSearch.sendKeys(tvSets.getFirstTVSet());
+    }
+
+    @Step("Поиск найденного первого элемента")
+    public void submitHeaderSearch(){
+        tvSets.submitHeaderSearch();
+    }
+/*
+    @Step("Нажатие чекбоксов")
+    public void setCheckBox(){
+        tvSets.setCheckbox(tvSets.checkLG, true);
+        tvSets.setCheckbox(tvSets.checkSamsung, true);
     }
 */
 }

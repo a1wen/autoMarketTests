@@ -20,6 +20,9 @@ public class TVSets extends PageObject {
     @FindBy(linkText = "Применить")
     public WebElement submit;
 
+    @FindBy(css = "div.snippet-list:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h3:nth-child(1) > a:nth-child(1) > span:nth-child(1)")
+    public WebElement firstTVSet;
+
     public void submitFilter(){
         submit.click();
     }
@@ -28,5 +31,12 @@ public class TVSets extends PageObject {
         return priceFrom.getText();
     }
 
+    public String getFirstTVSet(){
+        return firstTVSet.getText();
+    }
 
+    @Override
+    public void setCheckbox(WebElement field, boolean value) {
+        super.setCheckbox(field, value);
+    }
 }

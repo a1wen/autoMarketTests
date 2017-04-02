@@ -53,6 +53,11 @@ public class BaseSteps extends ScenarioSteps{
     public void clickCheckLG(){
         tvSets.checkLG.click();
     }
+
+    @Step("Нажать чек-бокс Samsung")
+    public void clickCheckSamsung(){
+        tvSets.checkSamsung.click();
+    }
 /*
     @Step("Проверка нажатия чекбоксов")
     public boolean isChekedBoxes(){

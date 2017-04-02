@@ -26,8 +26,9 @@ public class MarketTV extends BaseTest {
         baseSteps.gotoTV();
         baseSteps.fillPriceFrom("20000");
         //assertEquals();
-        baseSteps.submitFilter();
         baseSteps.clickCheckLG();
+        baseSteps.clickCheckSamsung();
+        baseSteps.submitFilter();
 
         baseSteps.wait(6000);
     }

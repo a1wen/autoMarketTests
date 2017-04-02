@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import ru.aplana.homework.steps.BaseSteps;
 
+import static org.junit.Assert.*;
+
 /**
  * Created by a1wen on 02.04.2017.
  */
@@ -22,6 +24,11 @@ public class MarketTV extends BaseTest {
         baseSteps.gotoMarket();
         baseSteps.gotoElectronic();
         baseSteps.gotoTV();
+        baseSteps.fillPriceFrom("20000");
+        //assertEquals();
+        baseSteps.submitFilter();
+        baseSteps.clickCheckLG();
+
         baseSteps.wait(6000);
     }
 }

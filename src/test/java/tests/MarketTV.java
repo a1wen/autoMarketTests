@@ -16,4 +16,12 @@ public class MarketTV extends BaseTest {
     @Steps
     BaseSteps baseSteps;
 
+    @Title("Поиск первого телевизора в списке, цена выше 20000 руб, производители Samsung и LG")
+    @Test
+    public void testMarketTV() throws Exception{
+        baseSteps.gotoMarket();
+        baseSteps.gotoElectronic();
+        baseSteps.gotoTV();
+        baseSteps.wait(6000);
+    }
 }

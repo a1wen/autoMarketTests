@@ -21,21 +21,26 @@ public class MarketTV extends BaseTest {
     @Title("Поиск первого телевизора в списке, цена выше 20000 руб, производители Samsung и LG")
     @Test
     public void testMarketTV() throws Exception{
+        String firstProduct;
         baseSteps.gotoMarket();
         baseSteps.gotoElectronic();
         baseSteps.gotoTV();
         try{
+            //Заполнение поля фильтра и чекбоксов, применение фильтра
             baseSteps.clickCheckLG();
             baseSteps.clickCheckSamsung();
             baseSteps.fillPriceFrom("20000");
             baseSteps.submitFilter();
+            //Проверка введенного значения "Цена от"
             baseSteps.checkPriceFrom("20000");
+            //Проверка количества элементов на странице
             baseSteps.checkQuantityElements(12);
-            baseSteps.fillHeaderSearch();
+            firstProduct = baseSteps.getFirstTVSet(0);
+            baseSteps.fillHeaderSearch(firstProduct);
             baseSteps.submitHeaderSearch();
-            baseSteps.wait(60);
+
         }catch (Exception e){
-            System.out.println(e.getStackTrace());
+            e.printStackTrace();
         }
 
 

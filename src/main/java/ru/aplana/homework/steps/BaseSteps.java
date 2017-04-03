@@ -16,6 +16,7 @@ public class BaseSteps extends ScenarioSteps{
     ElectronicPage electronicPage;
     TVSets tvSets;
     Headphones phones;
+    ItemPage item;
 
     @Step("Переход на страницу Маркета")
     public void gotoMarket(){
@@ -74,14 +75,24 @@ public class BaseSteps extends ScenarioSteps{
         assertEquals(quantity, tvSets.getQuantityElements());
     }
 
+    @Step("Получить название элемента {0}")
+    public String getFirstTVSet(int index){
+        return tvSets.getFirstTVSet(index);
+    }
+
    @Step("Ввод значения первого элемента в поисковую строку")
-    public void fillHeaderSearch(){
-        tvSets.headerSearch.sendKeys(tvSets.getFirstTVSet());
+    public void fillHeaderSearch(String value){
+        tvSets.headerSearch.sendKeys(value);
     }
 
     @Step("Поиск найденного первого элемента")
     public void submitHeaderSearch(){
         tvSets.submitHeaderSearch();
+    }
+
+    @Step("Проверка соответствия значений названия продукта")
+    public void checkItemName(String expectedName){
+        assertEquals(expectedName, item.getItemName());
     }
 /*
     @Step("Нажатие чекбоксов")

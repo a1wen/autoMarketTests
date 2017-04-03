@@ -18,9 +18,11 @@ public class BaseTest {
 
     @Before
     public void setUp() throws Exception{
+        //TODO Исправить путь к драйверу
         System.setProperty("webdriver.gecko.driver", "C:\\Users\\a1wen\\Desktop\\example\\MarketTests\\drivers\\geckodriver.exe");
         baseUrl = "http://yandex.ru";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
         driver.get(baseUrl);
     }
 

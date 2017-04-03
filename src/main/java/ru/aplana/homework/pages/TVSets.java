@@ -29,8 +29,8 @@ public class TVSets extends PageObject {
     public List<WebElement> snippets;
 
     //@FindBy(css = "div.snippet-list:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h3:nth-child(1) > a:nth-child(1) > span:nth-child(1)")
-    @FindBy(xpath = "//span[contains(@class, 'snippet-card__header')][1]")
-    public WebElement firstTVSet;
+    @FindBy(xpath = "//span[contains(@class, 'snippet-card__header')]")
+    public List<WebElement> productNames;
 
     @FindBy(xpath = ".//*[@id='header-search']")
     public WebElement headerSearch;
@@ -50,9 +50,8 @@ public class TVSets extends PageObject {
         return priceFrom.getAttribute("value");
     }
 
-    public String getFirstTVSet(){
-        if(firstTVSet.getText().isEmpty()) return "Халява, сэр!";
-                else return firstTVSet.getText();
+    public String getFirstTVSet(int index){
+        return productNames.get(index).getText();
     }
 
     public int getQuantityElements(){

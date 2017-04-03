@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
  * Created by a1wen on 03.04.2017.
  */
 public class ItemPage extends PageObject {
-    @FindBy(xpath = "*//h1[@class = 'title title_22']")
+    @FindBy(css="h1.title.title_size_22") //(xpath = "*//h1[@class = 'title title_22']")
     public WebElement result;
 
     public String getItemName(){

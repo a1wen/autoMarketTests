@@ -70,6 +70,11 @@ public class BaseSteps extends ScenarioSteps{
         tvSets.checkSamsung.click();
     }
 
+    @Step("Нажать чек-бокс Beats")
+    public void clickCheckBeats(){
+        phones.checkBeats.click();
+    }
+
     @Step("Проверка количества элементов на странице, {0}")
     public void checkQuantityElements(int quantity){
         assertEquals(quantity, tvSets.getQuantityElements());
@@ -83,6 +88,7 @@ public class BaseSteps extends ScenarioSteps{
    @Step("Ввод значения первого элемента в поисковую строку")
     public void fillHeaderSearch(String value){
         tvSets.headerSearch.sendKeys(value);
+        tvSets.headerSearch.sendKeys(Keys.ENTER);
     }
 
     @Step("Поиск найденного первого элемента")

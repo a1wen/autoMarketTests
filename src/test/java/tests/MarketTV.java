@@ -38,6 +38,8 @@ public class MarketTV extends BaseTest {
             firstProduct = baseSteps.getFirstTVSet(0);
             baseSteps.fillHeaderSearch(firstProduct);
             baseSteps.submitHeaderSearch();
+            //Проверка соответствия значений
+            baseSteps.checkItemName(firstProduct);
 
         }catch (Exception e){
             e.printStackTrace();

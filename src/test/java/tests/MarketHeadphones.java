@@ -24,6 +24,8 @@ public class MarketHeadphones extends BaseTest {
         steps.gotoHeadphones();
         try{
             steps.fillPriceHeadphones("5000");
+            steps.clickCheckBeats();
+
         }catch (Exception e){
             e.printStackTrace();
         }

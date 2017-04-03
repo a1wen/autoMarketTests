@@ -12,11 +12,11 @@ import static org.junit.Assert.*;
  */
 //TODO Требуется рефакторинг для вынесения методов работы с объектами выдачи в один файл, слить в 1 файл ProductsPage и Headphones
 public class BaseSteps extends ScenarioSteps{
-    MainPage mainpage;
-    MarketPage marketPage;
-    ElectronicPage electronicPage;
-    ProductsPage productsPage;
-    ItemPage item;
+    MainPage mainpage = new MainPage();
+    MarketPage marketPage = new MarketPage();
+    ElectronicPage electronicPage = new ElectronicPage();
+    ProductsPage productsPage = new ProductsPage();
+    ItemPage item = new ItemPage();
 
     @Step("Переход на страницу Маркета")
     public void gotoMarket(){
@@ -52,6 +52,11 @@ public class BaseSteps extends ScenarioSteps{
     @Step("Применить фильтр")
     public void submitFilter(){
         productsPage.submitFilter();
+        try {
+            java.util.concurrent.TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Step("Нажать чек-бокс LG")

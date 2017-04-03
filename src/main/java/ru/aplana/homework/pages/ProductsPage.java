@@ -25,7 +25,8 @@ public class ProductsPage extends PageObject {
     @FindBy(xpath = "//label[text()='Beats']")
     public WebElement checkBeats;
 
-    @FindBy(xpath = "//*[contains(text(), 'Применить')]/parent::button")
+    //@FindBy(xpath = "//*[contains(text(), 'Применить')]/parent::button")
+    @FindBy(css = ".button.button_action_n-filter-apply.button_size_s.button_pseudo_yes.button_theme_pseudo.i-bem.button_js_inited")
     public WebElement submit;
 
     @FindBy(xpath = "//div[contains(@class, 'n-snippet-card')]")

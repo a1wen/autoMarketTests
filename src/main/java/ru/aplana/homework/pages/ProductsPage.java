@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by a1wen on 02.04.2017.
  */
-public class TVSets extends PageObject {
+public class ProductsPage extends PageObject {
     @FindBy(id = "glf-pricefrom-var")
     public WebElement priceFrom;
 
@@ -21,6 +21,9 @@ public class TVSets extends PageObject {
     //@FindBy(xpath = "//label[text()='Samsung']/preceding-sibling::input[@type='checkbox']")
     @FindBy(xpath = "//label[text()='Samsung']")
     public WebElement checkSamsung;
+
+    @FindBy(xpath = "//label[text()='Beats']")
+    public WebElement checkBeats;
 
     @FindBy(xpath = "//*[contains(text(), 'Применить')]/parent::button")
     public WebElement submit;
@@ -50,7 +53,7 @@ public class TVSets extends PageObject {
         return priceFrom.getAttribute("value");
     }
 
-    public String getFirstTVSet(int index){
+    public String getFirstItem(int index){
         return productNames.get(index).getText();
     }
 

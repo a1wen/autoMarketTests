@@ -19,12 +19,21 @@ public class MarketHeadphones extends BaseTest {
     @Title("Поиск первых наушников в списке, цена выше 5000 руб, производитель Beats")
     @Test
     public void testMarketHeadphones() throws Exception{
+
+        String firstPhones;
+
         steps.gotoMarket();
         steps.gotoElectronic();
         steps.gotoHeadphones();
         try{
-            steps.fillPriceHeadphones("5000");
+            steps.fillPriceFrom("5000");
             steps.clickCheckBeats();
+            steps.submitFilter();
+            steps.checkQuantityElements(12);
+            firstPhones = steps.getFirstItem(0);
+            steps.fillHeaderSearch(firstPhones);
+            steps.submitHeaderSearch();
+            steps.checkItemName(firstPhones);
 
         }catch (Exception e){
             e.printStackTrace();

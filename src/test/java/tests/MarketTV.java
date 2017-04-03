@@ -35,7 +35,7 @@ public class MarketTV extends BaseTest {
             baseSteps.checkPriceFrom("20000");
             //Проверка количества элементов на странице
             baseSteps.checkQuantityElements(12);
-            firstProduct = baseSteps.getFirstTVSet(0);
+            firstProduct = baseSteps.getFirstItem(0);
             baseSteps.fillHeaderSearch(firstProduct);
             baseSteps.submitHeaderSearch();
             //Проверка соответствия значений

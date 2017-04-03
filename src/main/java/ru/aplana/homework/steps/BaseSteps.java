@@ -10,12 +10,12 @@ import static org.junit.Assert.*;
 /**
  * Created by a1wen on 02.04.2017.
  */
+//TODO Требуется рефакторинг для вынесения методов работы с объектами выдачи в один файл, слить в 1 файл ProductsPage и Headphones
 public class BaseSteps extends ScenarioSteps{
     MainPage mainpage;
     MarketPage marketPage;
     ElectronicPage electronicPage;
-    TVSets tvSets;
-    Headphones phones;
+    ProductsPage productsPage;
     ItemPage item;
 
     @Step("Переход на страницу Маркета")
@@ -40,60 +40,54 @@ public class BaseSteps extends ScenarioSteps{
 
     @Step("Заполнение фильтра \"Цена от\" {0}")
     public void fillPriceFrom(String price){
-        tvSets.priceFrom.sendKeys(price);
-        tvSets.priceFrom.sendKeys(Keys.ENTER);
-    }
-
-    @Step("Заполнение фильтра \"Цена\" наушников {0}")
-    public void fillPriceHeadphones(String price){
-        phones.priceFrom.sendKeys(price);
-        phones.priceFrom.sendKeys(Keys.ENTER);
+        productsPage.priceFrom.sendKeys(price);
+        productsPage.priceFrom.sendKeys(Keys.ENTER);
     }
 
     @Step("Проверка введенного значения {0}")
     public void checkPriceFrom(String price){
-        assertEquals(price, tvSets.getPriceFrom());
+        assertEquals(price, productsPage.getPriceFrom());
     }
 
     @Step("Применить фильтр")
     public void submitFilter(){
-        tvSets.submitFilter();
+        productsPage.submitFilter();
     }
 
     @Step("Нажать чек-бокс LG")
     public void clickCheckLG(){
-        tvSets.checkLG.click();
+        productsPage.checkLG.click();
     }
 
     @Step("Нажать чек-бокс Samsung")
     public void clickCheckSamsung(){
-        tvSets.checkSamsung.click();
+        productsPage.checkSamsung.click();
     }
 
     @Step("Нажать чек-бокс Beats")
     public void clickCheckBeats(){
-        phones.checkBeats.click();
+        productsPage.checkBeats.click();
     }
 
     @Step("Проверка количества элементов на странице, {0}")
     public void checkQuantityElements(int quantity){
-        assertEquals(quantity, tvSets.getQuantityElements());
+        assertEquals(quantity, productsPage.getQuantityElements());
     }
 
     @Step("Получить название элемента {0}")
-    public String getFirstTVSet(int index){
-        return tvSets.getFirstTVSet(index);
+    public String getFirstItem(int index){
+        return productsPage.getFirstItem(index);
     }
 
    @Step("Ввод значения первого элемента в поисковую строку")
     public void fillHeaderSearch(String value){
-        tvSets.headerSearch.sendKeys(value);
-        tvSets.headerSearch.sendKeys(Keys.ENTER);
+        productsPage.headerSearch.sendKeys(value);
+        productsPage.headerSearch.sendKeys(Keys.ENTER);
     }
 
     @Step("Поиск найденного первого элемента")
     public void submitHeaderSearch(){
-        tvSets.submitHeaderSearch();
+        productsPage.submitHeaderSearch();
     }
 
     @Step("Проверка соответствия значений названия продукта")

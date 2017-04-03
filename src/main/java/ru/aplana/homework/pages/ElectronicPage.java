@@ -11,4 +11,7 @@ public class ElectronicPage extends PageObject{
     //@FindBy(linkText = "Телевизоры")
     @FindBy(css = "div.catalog-menu__item:nth-child(3) > div:nth-child(2) > a:nth-child(1)")
     public WebElement tvSet;
+
+    @FindBy(css = ".link.catalog-menu__list-item.metrika.i-bem.metrika_js_inited")
+    public WebElement headphones;
 }

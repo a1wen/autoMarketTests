@@ -3,10 +3,7 @@ package ru.aplana.homework.steps;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.Keys;
-import ru.aplana.homework.pages.ElectronicPage;
-import ru.aplana.homework.pages.MainPage;
-import ru.aplana.homework.pages.MarketPage;
-import ru.aplana.homework.pages.TVSets;
+import ru.aplana.homework.pages.*;
 
 import static org.junit.Assert.*;
 
@@ -18,6 +15,7 @@ public class BaseSteps extends ScenarioSteps{
     MarketPage marketPage;
     ElectronicPage electronicPage;
     TVSets tvSets;
+    Headphones phones;
 
     @Step("Переход на страницу Маркета")
     public void gotoMarket(){
@@ -34,10 +32,21 @@ public class BaseSteps extends ScenarioSteps{
         electronicPage.tvSet.click();
     }
 
+    @Step("Переход на струницу \"Наушники\"")
+    public void gotoHeadphones(){
+        electronicPage.headphones.click();
+    }
+
     @Step("Заполнение фильтра \"Цена от\" {0}")
     public void fillPriceFrom(String price){
         tvSets.priceFrom.sendKeys(price);
         tvSets.priceFrom.sendKeys(Keys.ENTER);
+    }
+
+    @Step("Заполнение фильтра \"Цена\" наушников {0}")
+    public void fillPriceHeadphones(String price){
+        phones.priceFrom.sendKeys(price);
+        phones.priceFrom.sendKeys(Keys.ENTER);
     }
 
     @Step("Проверка введенного значения {0}")
@@ -65,7 +74,7 @@ public class BaseSteps extends ScenarioSteps{
         assertEquals(quantity, tvSets.getQuantityElements());
     }
 
-    @Step("Ввод значения первого элемента в поисковую строку")
+   @Step("Ввод значения первого элемента в поисковую строку")
     public void fillHeaderSearch(){
         tvSets.headerSearch.sendKeys(tvSets.getFirstTVSet());
     }

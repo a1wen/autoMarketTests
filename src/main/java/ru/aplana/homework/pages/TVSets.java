@@ -51,7 +51,8 @@ public class TVSets extends PageObject {
     }
 
     public String getFirstTVSet(){
-        return firstTVSet.getText();
+        if(firstTVSet.getText().isEmpty()) return "Халява, сэр!";
+                else return firstTVSet.getText();
     }
 
     public int getQuantityElements(){
